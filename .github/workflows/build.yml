@@ -67,10 +67,9 @@ jobs:
 
           # collect dsym
           mkdir -p build/DSYMs
-          for f in bazel-out/applebin_ios-ios_arm*-opt-ST-*/bin/Telegram/*.dSYM; do
-            cp -R "$f" build/DSYMs/
-          done
+          cp -R bazel-bin/Telegram/*.dSYM build/DSYMs/
           zip -r "./$OUTPUT_PATH/Telegram.DSYMs.zip" build/DSYMs 1>/dev/null
+
 
       - name: Create Release
         id: create_release
